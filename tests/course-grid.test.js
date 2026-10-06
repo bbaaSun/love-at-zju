@@ -1,0 +1,7 @@
+const test=require('node:test'),assert=require('node:assert/strict');
+const G=require('../miniprogram/shared/course-grid'),T=require('../miniprogram/shared/timetable');
+const days=T.week(Date.parse('2026-09-14T00:00:00+08:00'),0);
+const course={date:days[0].date,start:'13:25',end:'14:10',title:'课程甲',place:'东1-101'};
+test('weekly grid merges school split blocks while preserving title, room and time',()=>{const r=G.layout({mine:{courses:[course,{...course,start:'14:15',end:'15:50'}]}},days,'mine');assert.equal(r.events.length,1);assert.equal(r.events[0].end,'15:50');assert.equal(r.events[0].place,'东1-101');assert.equal(r.ticks.length,13);assert.equal(r.headers.length,7);});
+test('overlapping couple courses receive separate lanes; hidden partner is excluded',()=>{const t={mine:{courses:[course]},partner:{courses:[{...course,title:'课程乙'}]}};const both=G.layout(t,days,'both');assert.equal(both.events.length,2);assert.notEqual(both.events[0].style,both.events[1].style);assert.equal(G.layout(t,days,'mine').events.length,1);assert.equal(G.layout({mine:t.mine,partner:null},days,'partner').events.length,0);});
+test('courses outside bell timetable are retained in explicit overflow list',()=>{const r=G.layout({mine:{courses:[{...course,start:'22:00',end:'23:00'}]}},days,'mine');assert.equal(r.events.length,0);assert.equal(r.outside.length,1);assert.equal(G.position('21:15'),1300);assert.equal(G.position('08:00'),0);});

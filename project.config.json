@@ -1,0 +1,50 @@
+{
+  "description": "浙天遇见你 · 校园共同生活记录",
+  "miniprogramRoot": "miniprogram/",
+  "cloudfunctionRoot": "cloudfunctions/",
+  "compileType": "miniprogram",
+  "appid": "wx912df77f79e426c4",
+  "projectname": "love-at-zju",
+  "setting": {
+    "es6": true,
+    "enhance": true,
+    "minified": true,
+    "postcss": false,
+    "compileWorklet": false,
+    "uglifyFileName": false,
+    "uploadWithSourceMap": true,
+    "packNpmManually": false,
+    "packNpmRelationList": [],
+    "minifyWXSS": true,
+    "minifyWXML": true,
+    "localPlugins": false,
+    "disableUseStrict": false,
+    "useCompilerPlugins": false,
+    "condition": false,
+    "babelSetting": {
+      "ignore": [],
+      "disablePlugins": [],
+      "outputPath": ""
+    }
+  },
+  "libVersion": "latest",
+  "simulatorPluginLibVersion": {},
+  "packOptions": {
+    "ignore": [
+      {
+        "type": "file",
+        "value": "/assets/avatar-lakeside-v1.png"
+      },
+      {
+        "type": "file",
+        "value": "/assets/avatar-orbit-lake.png"
+      },
+      {
+        "type": "file",
+        "value": "/assets/avatar-ribbon-burgundy.png"
+      }
+    ],
+    "include": []
+  },
+  "editorSetting": {}
+}

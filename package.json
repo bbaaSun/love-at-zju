@@ -1,0 +1,10 @@
+{
+  "name": "love-at-zju",
+  "private": true,
+  "version": "0.25.0",
+  "scripts": {
+    "test": "node --test tests/*.test.js",
+    "preview": "node preview/server.js",
+    "sync": "node scripts/sync.js"
+  }
+}
